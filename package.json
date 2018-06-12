@@ -1,0 +1,26 @@
+{
+    "name": "Anamatronics Servo App",
+    "version": "1.0.0",
+    "description": "Comments for everyone.",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "test": "node_modules/.bin/mocha tests/**"
+    },
+    "keywords": [
+      "users",
+      "node",
+      "express",
+      "structure"
+    ],
+    "author": "MladenE",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.9.5",
+      "jade": "^1.7.0"
+    },
+    "devDependencies": {
+      "mocha": "^1.21.4",
+      "should": "^4.0.4"
+    }
+  }
