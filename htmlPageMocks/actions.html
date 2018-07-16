@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="Servo control system">
+    <meta name="author" content="Mladen Edwards">
+    <title>Bootstrap 4 boilerplate</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- endbuild -->
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+           <a class="navbar-brand" href=".">M.A.S.H</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+
+           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+             <ul class="navbar-nav mr-auto">
+               <li class="nav-item ">
+                 <a class="nav-link" href="calibrate.html">Calibration</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="scenes.html">Scenes</a>
+               </li>
+               <li class="nav-item active">
+                 <a class="nav-link" href="actions.html">Actions <span class="sr-only">(current)</span></a>
+               </li>               
+             </ul>             
+           </div>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Actions</a></li>
+                  <li class="breadcrumb-item active"aria-current="page">All</li>
+                </ol>
+              </nav>
+
+         <div class="container">
+
+           <div class="row">
+
+                <div class="col-sm-10">
+                    <h1>Actions</h1>
+                </div>
+                <div class="col-sm-2 text-right">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-action-add"><i class="fas fa-plus"></i></button>
+                </div>
+                
+           </div>
+
+           <div class="row">
+             <div class="col-sm-12">
+             <p>
+               An Action is a defined unit of motion. i.e Blink, Turn Left etc.
+             </p>
+            </div>
+           </div>
+
+         </div>
+
+
+         <div class="container">
+
+
+
+
+          <!-- table version -->
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <table class="table table-striped">
+                            <thead>
+                              <tr class="m-0">
+                                <th class="w-5" scope="col">#</th>
+                                <th class="w-65" scope="col">Name</th>                                
+                                <th class="w-30 text-right" scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="m-0">
+                                <th class="w-5" scope="row">1</th>
+                                <td class="w-65">Blink</td>
+                                <td class="w-30 text-right">
+                                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                  <a href="action-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>                                 
+                              </td>
+                              </tr>
+                              <tr class="m-0">
+                                <th class="w-5" scope="row">2</th>
+                                <td class="w-65">Wink</td>
+                                <td class="w-30 text-right">
+                                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></button>                                  
+                                </td>
+                              </tr>
+                              <tr class="m-0">
+                                <th class="w-5" scope="row">3</th>
+                                <td class="w-65">Look Up</td>
+                                <td class="w-30 text-right">
+                                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit"></i></button>                                  
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                </div>
+
+            </div>
+
+         </div>
+
+
+
+
+<!-- Modal New Servo -->
+<div class="modal fade" id="modal-action-add" tabindex="-1" role="dialog" aria-labelledby="modal-action-add-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalCenterTitle">New Action</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="What is this Action?">
+          </div>          
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fas fa-times"></i></button>
+        <button type="button" class="btn btn-success">Save <i class="fas fa-check"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Delete Action -->
+<div class="modal fade" id="modal-action-delete" tabindex="-1" role="dialog" aria-labelledby="modal-action-delete-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-trash-alt"></i> Delete Scene</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this Action?</p>
+          <p>Frames associated with this Action will be deleted.</p>
+          <p>This is permanent!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fas fa-times"></i></button>
+          <button type="button" class="btn btn-danger">Delete <i class="fas fa-exclamation"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- build:js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- endbuild -->
+  </body>
+
+</html>
