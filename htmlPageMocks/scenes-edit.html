@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="Servo control system">
+    <meta name="author" content="Mladen Edwards">
+    <title>Bootstrap 4 boilerplate</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- endbuild -->
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+           <a class="navbar-brand" href=".">M.A.S.H</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+
+           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+             <ul class="navbar-nav mr-auto">
+               <li class="nav-item ">
+                 <a class="nav-link" href="calibrate.html">Calibration</a>
+               </li>
+               <li class="nav-item active">
+                 <a class="nav-link" href="scenes.html">Scenes <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="actions.html">Actions</a>
+               </li>               
+             </ul>             
+           </div>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="scenes.html">Scenes</a></li>
+                  <li class="breadcrumb-item active"aria-current="page">Edit</li>
+                </ol>
+              </nav>
+
+         <div class="container">
+
+           <div class="row">
+
+                <div class="col-sm-12">
+                    <h1>Edit Scene: <span name="sceneName">Roar</span></h1>
+                </div>
+                
+           </div>
+
+           <div class="row">
+             <div class="col-sm-12">
+             <p>
+               Description.
+             </p>
+            </div>
+           </div>
+
+           
+           <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" placeholder="Scene name">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="inputBackgroundAudio" class="col-sm-2 col-form-label">Audio</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputBackgroundAudio" placeholder="Background audio for this scene">
+            </div>
+          </div>
+
+         </div>
+
+
+         <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-10">
+                    <h2>Actions</h2>
+                </div>
+                <div class="col-sm-2 text-right">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#modal-action-add"><i class="fas fa-plus"></i></button>
+                </div>
+                
+           </div>
+
+
+          <!-- table version -->
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <table class="table table-striped">
+                            <thead>
+                              <tr class="m-0">
+                                <th class="w-10" scope="col">Play Order</th>
+                                <th class="w-50" scope="col">Name</th>                                
+                                <th class="w-40 text-right" scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="m-0">
+                                <th class="w-10" scope="row">1</th>
+                                <td class="w-50">Say hello</td>
+                                <td class="w-40 text-right">
+                                  <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                  <button class="btn btn-default"><i class="fas fa-angle-double-up"></i></button>
+                                  <button class="btn btn-default"><i class="fas fa-angle-double-down"></i></button>
+                                  <button class="btn btn-default"><i class="fas fa-angle-up"></i></button>
+                                  <button class="btn btn-default"><i class="fas fa-angle-down"></i></button>
+                              </td>
+                              </tr>
+                              <tr class="m-0">
+                                <th class="w-10" scope="row">2</th>
+                                <td class="w-50">Roar</td>
+                                <td class="w-40 text-right">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-double-up"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-double-down"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-up"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-down"></i></button>
+                                </td>
+                              </tr>
+                              <tr class="m-0">
+                                <th class="w-10" scope="row">3</th>
+                                <td class="w-50">Sleep</td>
+                                <td class="w-40 text-right">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-action-delete"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-double-up"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-double-down"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-up"></i></button>
+                                    <button class="btn btn-default"><i class="fas fa-angle-down"></i></button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                </div>
+
+            </div>
+
+         </div>
+
+
+
+
+<!-- Modal New Servo -->
+<div class="modal fade" id="modal-action-add" tabindex="-1" role="dialog" aria-labelledby="modal-action-add-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalCenterTitle">Add Action</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form>        
+
+          <!-- Split Actions into a partial; it is also used in Edit>Add Action Modal -->
+          <p>Include Actions</p>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Smile
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">
+              Look down
+            </label>
+          </div>
+          
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck3">
+              Look up
+            </label>
+          </div>
+          
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <label class="form-check-label" for="defaultCheck4">
+              Blow
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+            <label class="form-check-label" for="defaultCheck5">
+              Laugh
+            </label>
+          </div>
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fas fa-times"></i></button>
+        <button type="button" class="btn btn-success">Save <i class="fas fa-check"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Delete Action -->
+<div class="modal fade" id="modal-action-delete" tabindex="-1" role="dialog" aria-labelledby="modal-action-delete-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-trash-alt"></i> Delete Action</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this Action?</p>
+          <p>This only removes the Action from this Scene.</p>
+          <p>You can add the action again at any time.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fas fa-times"></i></button>
+          <button type="button" class="btn btn-danger">Delete <i class="fas fa-exclamation"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <!-- build:js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- endbuild -->
+  </body>
+
+</html>
