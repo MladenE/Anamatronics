@@ -11,13 +11,16 @@
       "users",
       "node",
       "express",
-      "structure"
+      "structure",
+      "gpio",
+      "servo"
     ],
     "author": "MladenE",
     "license": "MIT",
     "dependencies": {
       "express": "^4.9.5",
-      "jade": "^1.7.0"
+      "jade": "^1.7.0",
+      "pigpio": "^1.1.0"
     },
     "devDependencies": {
       "mocha": "^1.21.4",
