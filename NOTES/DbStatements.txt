@@ -1,0 +1,60 @@
+DB STATEMENTS
+
+ServoMaster:
+    - getAll
+    - getForId
+    - create
+    - delete
+    - updateName
+    - updateLocation
+    - updateSpeed           
+    - updatePwm0Degrees     
+    - updatePwm180Degrees    
+
+Scene:
+	- getAll
+	- getForId       
+	- create         
+	- delete         
+	- play                  Builds up the entire scene          
+	- updateName     
+	- updateAudioFile
+
+Action:
+	- getAllForScene     
+	- addToScene         
+	- deleteFromScene    
+	- updateOrderInScene    Get all actions >> delete all connections >> reset them in order
+
+	- getAll
+	- getForId           
+	- create             
+	- delete             
+	- updateName         
+	- updateNote         
+	- updateAudioFile    
+
+KeyFrame:
+	- getAllForAction    
+	- deleteFromAction      KeyFrames can't stand alone; deleting it from an action is to delete it completely. Surrounding KeyFrames must be modified to fill the space.
+	- updateOrderInAction   Get all keyFrames >> delete all connections >> reset them in order
+	
+	- getForId           
+	- create                Create: Servo element for each ServoMaster -> Position -> Transitions ( based on ServoMaster speed )
+	- updateNote         
+
+Servo:
+	- getAllForKeyFrame  
+
+	- getForId           
+	- updateNote         
+
+Position:
+	- getForServoId    
+	- updatePosition   
+	- updateNote       
+
+Transition:
+	- getAllForPosition
+	- updatePosition   
+	- updateNote       

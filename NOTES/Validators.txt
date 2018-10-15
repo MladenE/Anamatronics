@@ -1,0 +1,27 @@
+VALIDATORS
+
+Types
+
+Regex               Input to validate
+------------------+----------------------------------------------
+int     1>6 chars   id, sceneId, actionId, keyFrameId, positionId
+string  x chars     name
+int     1>2 chars   location
+int                 speed
+int     1>4 chars   pwm0Degrees
+int     1>4 chars   pwm180Degrees
+string  check?      filePath
+int     1>3 chars   position
+
+
+Collections
+= Groupings of validations for common controller signatures
+
+- id
+- name
+- note
+- id, id
+- id, name
+- id, note
+- id, filePath
+

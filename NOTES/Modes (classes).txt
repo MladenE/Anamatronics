@@ -1,0 +1,61 @@
+MODELS ( CLASSES )
+
+ServoMaster:
+	- getAll                
+	- getForId              id
+	- create                name, location, speed, pwm0Degrees, pwm180Degrees
+	- delete                id
+	- updateName            id, name
+	- updateLocation        id, location
+	- updateSpeed           id, speed
+	- updatePwm0Degrees     id, pwm0Degrees
+	- updatePwm180Degrees   id, pwm180Degrees
+
+Scene:
+	- getAll
+	- getForId              id
+	- create                name, [actionId]
+	- delete                id
+	- play                  id
+	- updateName            id, name
+	- updateAudioFile       id, filePath
+
+Action:
+	- getAllForScene        sceneId
+	- addToScene            sceneId, actionId
+	- deleteFromScene       sceneId, actionId
+	- updateOrderInScene    sceneId, [{actionId, position},..]
+
+	- getAll
+	- getForId              id
+	- create                name, note, audioFile
+	- delete                id
+	- updateName            id, name
+	- updateNote            id, note
+	- updateAudioFile       id, filePath
+
+KeyFrame:
+	- getAllForAction       actionId
+	- deleteFromAction      actionId, keyFrameId
+	- updateOrderInAction   actionId, [{keyFrameId, position},..]
+	
+	- getForId              id
+	- create                note
+	- updateNote            id, note
+
+Servo:
+	- getAllForKeyFrame     keyFrameId
+	- createForKeyFrame		keyFrameId
+
+	- getForId              id
+	- updateNote            id, note
+
+Position:
+	- getForServoId         servoId
+	- updatePosition        id, position
+	- updateNote            id, note
+
+Transition:
+	- getAllForPosition     positionId
+	- updatePosition        id, position
+	- updateNote            id, note

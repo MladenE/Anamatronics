@@ -1,0 +1,60 @@
+CONTROLLER
+
+ServoMaster:
+	- /
+	- /				                :id
+	- /create			            :[name, location, speed, pwm0Degrees, pwm180Degrees]
+	- /delete			            :id
+	- /update/name			        :[id, name]	
+	- /update/location		        :[id, location]
+	- /update/speed			        :[id, speed]
+	- /update/pwm0Degrees		    :[id, pwm0Degrees]
+	- /update/pwm180Degrees		    :[id, pwm180Degrees]
+
+Scene:
+	- /
+	- /				                :id
+	- /create			            :[name, [actionId]]
+	- /delete			            :id
+	- /play				            :id
+	- /update/name			        :[id, name]
+	- /update/audioFile		        :[id, filePath]
+	- /action/add			        :[sceneId, actionId]
+	- /action/all			        :sceneId
+	- /action/delete		        :[sceneId, actionId]
+	- /action/update/positions	    :[sceneId, [{actionId, position},..]]
+
+Action:
+	- /
+	- /				                :id
+	- /create			            :[name]
+	- /delete			            :id
+	- /update/name			        :[id, name]
+	- /update/note			        :[id, note]
+	- /update/audioFile		        :[id, filePath]
+	- /keyFrame/all			        :actionId
+	- /keyFrame/delete		        :id
+	- /keyFrame/update/positions	:[actionId, [{keyFrameId, position},..]]
+
+KeyFrame:
+	- /				                :id
+	- /create			            :note
+	- /update/note			        :[id, note]
+	- /servo/all			        :keyFrameId
+        
+Servo:      
+	- /				                :id
+	- /update/note			        :[id, note]
+	- /position/all			        :servoId
+        
+Position:       
+	- /update/position		        :[id, position]
+	- /update/note			        :[id, note]
+	- /transition/all		        :positionId
+        
+Transition:     
+	- /update/position		        :[id, position]
+	- /update/note			        :[id, note]
+
+
+
