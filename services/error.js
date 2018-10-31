@@ -1,16 +1,14 @@
 
-const _request;
-const _response;
+const _response = "";
 
-const _json;
+const _json = {};
 
 exports.init = (req, res) => {          // Setup the error response with the values posted to the controller.
-    _request  = req;
     _response = res;
 
     _json = {
-        headers : _request.headers
-      , params  : _request.params
+        headers : req.headers
+      , params  : req.params
       , message : ""
     }
 }

@@ -1,7 +1,6 @@
 var express = require('express')
   , router = express.Router()
-  , bodyParser = require('body-parser')
-  , validateParams = require('../services/parameters').Action
+  , validateParams = require('../services/parameters')
   //, Comment = require('../models/comment')
   //, auth = require('../middlewares/auth')
 
@@ -13,60 +12,139 @@ router.get('/', function(req, res) {
 
 // GetAction
 router.get('/:id', function(req, res) {
-    validateParams.GetForId(req.params.id);
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.GetForId" )
+                                .Action.GetForId( req.params.id )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
     // get all frames from db
     res.send('Single action');
 })
 
 // CreateAction
-router.post('/create/', auth, function(req, res) {
-    validateParams.Create(req.user.name);
+router.post('/create/', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.Create" )
+                                .Action.Create( req.user.name )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
     //newName = req.user.newName
 })
 
 // DeleteAction
-router.delete('/delete/:id', auth, function(req, res) {
-    validateParams.Delete(req.params.id);
+router.delete('/delete/:id', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.Delete" )
+                                .Action.Delete( req.params.id )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+
     // replace auth middleware with something to get the action
     //newName = req.user.newName
 })
 
 //UpdateName
-router.patch('/update/name', auth, function(req, res) {
-    validateParams.UpdateName(req.params.id, req.params.name);
+router.patch('/update/name', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.UpdateName" )
+                                .Action.UpdateName( req.params.id, req.params.name )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+
     // replace auth middleware with something to get the action
     //newName = req.user.newName
 })
 
 //UpdateName
-router.patch('/update/note', auth, function(req, res) {
-    validateParams.UpdateNote(req.params.id, req.params.note);
+router.patch('/update/note', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.UpdateNote" )
+                                .Action.UpdateNote( req.params.id, req.params.note )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
     // replace auth middleware with something to get the action
     //newName = req.user.newName
 })
 
 //UpdateName
-router.patch('/update/audiofile', auth, function(req, res) {
-    validateParams.UpdateAudioFile(req.params.id, req.params.filePath);
+router.patch('/update/audiofile', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.UpdateAudioFile" )
+                                .Action.UpdateAudioFile( req.params.id, req.params.filePath )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
     // replace auth middleware with something to get the action
     //newName = req.user.newName
 })
 
 // GetAllActionsForScene
 router.get('/keyFrame/all:actionId', function(req, res) {
-    validateParams.KeyFrameGetAllForActionId(req.params.actionId);
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.KeyFrameGetAllForActionId" )
+                                .Action.KeyFrameGetAllForActionId( req.params.actionId )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
     // get all frames from db
 })
 
 // GetAllActionsForScene
 router.delete('/keyFrame/delete:actionId:keyframeId', function(req, res) {
-    validateParams.KeyFrameDelete(req.params.actionId, req.params.keyframeId);
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.KeyFrameDelete" )
+                                .Action.KeyFrameDelete( req.params.actionId, req.params.keyframeId )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
     // get all frames from db
 })
 
 // GetAllActionsForScene
 router.post('/keyFrame/update/positions', function(req, res) {
-    validateParams.KeyFrameUpdateOrder(req.user.actionId, req.user.actionPositions);
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params Action.KeyFrameUpdateOrder" )
+                                .Action.KeyFrameUpdateOrder( req.user.actionId, req.user.actionPositions )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+
     // get all frames from db
 })
 

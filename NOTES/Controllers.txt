@@ -14,14 +14,14 @@ ServoMaster:
 Scene:
 	- /
 	- /				                :id
-	- /create			            :[name, [actionId]]
+	- /create			            :[sceneId, name, [actionId, position]]
 	- /delete			            :id
 	- /play				            :id
 	- /update/name			        :[id, name]
 	- /update/audioFile		        :[id, filePath]
-	- /action/add			        :[sceneId, actionId]
+	- DELETE /action/add			        :[sceneId, actionId]
 	- /action/all			        :sceneId
-	- /action/delete		        :[sceneId, actionId]
+	- DELETE /action/delete		        :[sceneId, actionId]
 	- /action/update/positions	    :[sceneId, [{actionId, position},..]]
 
 Action:
@@ -33,7 +33,7 @@ Action:
 	- /update/note			        :[id, note]
 	- /update/audioFile		        :[id, filePath]
 	- /keyFrame/all			        :actionId
-	- /keyFrame/delete		        :id
+	- /keyFrame/delete		        :actionId, keyframeId
 	- /keyFrame/update/positions	:[actionId, [{keyFrameId, position},..]]
 
 KeyFrame:

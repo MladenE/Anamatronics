@@ -9,19 +9,45 @@ router.get('/', function(req, res) {
 })
 
 // Create
-router.post('/create', auth, function(req, res) {
-    validateParams.Create(req.user.note);
+router.post('/create', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params KeyFrame.Create" )
+                                .KeyFrame.Create( req.user.note )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
     //newName = req.user.newName
 })
 
 // Update
 router.patch('/update/note', function(req, res) {
-    validateParams.UpdateNote(req.user.id, req.user.note);
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params KeyFrame.UpdateNote" )
+                                .KeyFrame.UpdateNote( req.user.id, req.user.note )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
     res.send('Get Frame ' + req.params.id + ' for editing');
 })
 
-router.get('/servo/all:keyFrameId', auth, function(req, res) {
-    validateParams.ServoGetAllForKeyFrameId(req.params.keFrameId);
+router.get('/servo/all:keyFrameId', function(req, res) {
+    
+    const errorCb = error.init( req, res );        
+
+    const validationErrors = validateParams
+                                .init( "Params KeyFrame.ServoGetAllForKeyFrameId" )
+                                .KeyFrame.ServoGetAllForKeyFrameId( req.params.keFrameId )
+                                .GetExceptions();
+    
+    if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
+    
 })
 
 
