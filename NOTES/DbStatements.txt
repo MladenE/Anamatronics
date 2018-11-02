@@ -22,9 +22,9 @@ Scene:
 
 Action:
 	- getAllForScene     
-	- addToScene         
-	- deleteFromScene    
-	- updateOrderInScene    Get all actions >> delete all connections >> reset them in order
+	- addToScene         	Remove: Not needed
+	- deleteFromScene    	Remove: Not needed
+	- updateForScene 	    Get all actions >> delete all connections >> reset them in order
 
 	- getAll
 	- getForId           

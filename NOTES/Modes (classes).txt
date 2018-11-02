@@ -40,7 +40,7 @@ KeyFrame:
 	- updateOrderInAction   actionId, [{keyFrameId, position},..]
 	
 	- getForId              id
-	- create                note
+	- create                note, duration
 	- updateNote            id, note
 
 Servo:

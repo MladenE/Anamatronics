@@ -38,7 +38,7 @@ Action:
 
 KeyFrame:
 	- /				                :id
-	- /create			            :note
+	- /create			            :note, duration
 	- /update/note			        :[id, note]
 	- /servo/all			        :keyFrameId
         
