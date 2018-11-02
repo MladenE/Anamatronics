@@ -25,20 +25,23 @@ exports.Cyphers = {
         Scenes : {
               GetAll                : "MATCH (s:Scene) RETURN s;"
             , GetForId              : "MATCH (s:Scene {id:{id}}) RETURN s;"
+                                    // Create the new scene then create relationships with positions from passed in array.
             , Create                : "CREATE (:Scene {id:{sceneId}, name:{name}) WITH {actions} AS actions UNWIND actions as a MATCH (scene:Scene {id:{sceneId}) MATCH (action:Action {id: a.id}) CREATE (action)-[:SEQUENCE {position: a.position}]->(scene);"
             , Delete                : "MATCH (s:Scene {id:{sceneId}}) DETACH DELETE s"
-            , Play                  : ""         // ? Not a cypher
+                                    // Not a cypher?
+            , Play                  : ""         
             , UpdateName            : "MATCH (s:Scene {id:{id}}) SET s.name = {name} RETURN s;"
             , UpdateAudioFile       : "MATCH (s:Scene {id:{id}}) SET s.audioFile = {audioFile} RETURN s;"            
         },
         Actions : {
               GetAllForScene        : "MATCH (s:Scene {id:{sceneId}})<-[sq:SEQUENCE]-(a:Action) RETURN a, sq.position as p ORDER BY p ASC;"
-            , AddToScene            : ""    // Remove: modify list on client then send array to update > delete all relationships > add new relationships
-            , DeleteFromScene       : ""    // Remove: modify list on client then send array to update > delete all relationships > add new relationships
-            , UpdateForScene        : ""    // Receives an array of actions. Deletes current relationships > creates new ones.
+            //, AddToScene            : ""    // Remove: modify list on client then send array to update > delete all relationships > add new relationships
+            //, DeleteFromScene       : ""    // Remove: modify list on client then send array to update > delete all relationships > add new relationships
+                                    // Receives an array of actions. Deletes current relationships to Scene > creates new ones.
+            , UpdateForScene        : "MATCH (s:Scene {id:{sceneId}})<-[sq:SEQUENCE]-() DELETE sq WITH {actions} AS actions UNWIND actions as act MATCH (sc:Scene {id:{sceneId}}) MATCH (a:Action {id: act.id}) CREATE (a)-[:SEQUENCE {position: act.position}]->(sc);"    
             , GetAll                : "MATCH (a:Action) RETURN a;"
             , GetForId              : "MATCH (a:Action {id:{id}}) RETURN a;"
-            , Create                : ""
+            , Create                : "CREATE (:Action {id:{id}, name:{name} });"
             , Delete                : ""
             , UpdateName            : "MATCH (a:Action {id:{id}}) SET a.name = {name} RETURN a;"
             , UpdateNote            : "MATCH (a:Action {id:{id}}) SET a.note = {note} RETURN a;"
