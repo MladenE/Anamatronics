@@ -117,9 +117,12 @@ exports.Action = {
 exports.KeyFrame = {
       
       GetForId                      : ( id )           => _id         ( id ),
-      UpdateNote                    : ( id, note )     => _idNote     ( id, note ),
-      Create                        : ( note )         => _note       ( note ),      
-      ServoGetAllForKeyFrameId      : ( id )           => _id         ( id )
+      UpdateNote                    : ( id, note )     => _idNote     ( id, note ),  
+      ServoGetAllForKeyFrameId      : ( id )           => _id         ( id ),
+      Create                        : ( note, duration ) =>           { 
+                                                                              validate.test.general.note( note );
+                                                                              validate.test.servo.speed( duration );
+                                                                        }
     }
     
 exports.Servo = {
