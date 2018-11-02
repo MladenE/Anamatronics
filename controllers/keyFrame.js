@@ -16,7 +16,7 @@ router.post('/create', function(req, res) {
 
     const validationErrors = validateParams
                                 .init( "Params KeyFrame.Create" )
-                                .KeyFrame.Create( req.user.note )   // Add duration to this.
+                                .KeyFrame.Create( req.user.note, req.user.duration )
                                 .GetExceptions();
     
     if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
