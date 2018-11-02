@@ -26,7 +26,9 @@ router.post('/create', function(req, res) {
 
     // Get all servoMasters
     const servoMasters = [];
+
     // Create new data object and add id and note for new KeyFrame
+    // See NOTES > "Example KeyFrame object for Neo4j"
     const data = {
           keyFrame : { id : uuidv1(), note : req.user.note }
         , servos : []
@@ -65,13 +67,15 @@ router.post('/create', function(req, res) {
             }
 
             // Add transitions to position.transitions
-            positions.transitions.push(transition);
+            positions.transitions.push( transition );
         }
 
         servo.positions.push( positions );
 
         data.servos.push( servo );
     }
+
+    // Call the neo4j cypher and send it data
 
 })
 
