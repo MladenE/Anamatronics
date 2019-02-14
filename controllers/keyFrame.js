@@ -23,15 +23,17 @@ router.post('/create', function(req, res) {
     
     if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
 
-    // Get all servoMasters
-    servoMasters.getAll( keyFrame.create );
-    const servoMasters = [];
-
-    // Build an object to send to neo4j 
-    const data = keyFrame.create( servoMasters );
+    // Get all servoMasters >> pass in cb of keyframe.create
+    var p = new promise( resolve( servoMasters.getAll() ) );
 
     // Call the neo4j cypher and send it data
+    p.then( (val) => resolve( keyFrame.create(val) ) )
+     .then(  )
+     .catch( errorCb );
 
+    // Return to the UI with an "Creating Keyframes" message
+
+    // On completion call a WebSocket?
 })
 
 // Update
