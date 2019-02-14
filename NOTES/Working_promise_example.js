@@ -1,3 +1,5 @@
+//https://javascript.info/promise-chaining
+
 var p = function()
 {
    return new Promise(function(resolve, reject) {
