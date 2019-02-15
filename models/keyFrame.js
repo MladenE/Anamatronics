@@ -17,7 +17,7 @@ exports.getForId = function (keyFrameId, cb) {
     
 }
 
-exports.create = (servoMasters) => {
+exports.create = (servoMasters, cb) => {
 
 
     // Called via cb from GetServos
