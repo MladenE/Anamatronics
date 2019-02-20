@@ -28,15 +28,11 @@ router.post('/create', function(req, res) {
     .then(
         (val) => { return resolve( keyFrame.create(val, errorCb) );}
     )
+    .then(res.send("Keyframes created"))
     .catch( errorCb );
 
     // Call the neo4j cypher and send it data
     
-
-    // Return to the UI with an "Creating Keyframes" message
-    res.send('Creating Keyframes');
-
-    // On completion call a WebSocket?
 })
 
 // Update
