@@ -2,7 +2,7 @@
 // Require Neo4j
 const neo4j = require('neo4j-driver').v1;
 // Create Driver
-const driver = new neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "neo"));
+const driver = new neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "Password")); // db name: GraphTest, un: neo4j, pw: Password
 // Create Driver session
 const session = driver.session();
 
@@ -88,7 +88,7 @@ exports.RunCypher = function (cypher, parameters, errorCallback, callback) {
             errorCallback.send(e);       // Response passed in from controller.
         })
         .then(() => {
-            // All OK. Transaction is commited.
+            // All OK. Transaction is committed.
             // Close the Session
             return session.close();
         })
