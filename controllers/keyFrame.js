@@ -24,12 +24,12 @@ router.post('/create', function(req, res) {
     if ( validationErrors[0].errors.length !== 0 ) { errorCb.send( validationErrors ) };
 
     // Get all servoMasters >> pass in cb of keyframe.create
-    new promise( resolve( servoMasters.getAll(errorCb) ) )
+    new Promise( resolve( servoMasters.getAll(errorCb) ) )
     .then(
         (val) => { return resolve( keyFrame.create(val, errorCb) );}
     )
     .then(res.send("Keyframes created"))
-    .catch( errorCb );
+    .catch( errorCb.send("Promise chain failed to create keyframes.") );
 
     // Call the neo4j cypher and send it data
     
